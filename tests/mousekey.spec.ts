@@ -25,7 +25,7 @@ test('menu sub-menu handling test',async({page})=>{
     await page.getByRole('link',{name:'Dog'}).hover();
     await page.getByRole('link',{name:'Labrador'}).click();
     let innerText= await page.locator('#outputMessage').innerText();
-    console.log(innerText);
+    console.log("The text result : " + innerText);
    
     
 

@@ -1,7 +1,7 @@
 import {test,Page,chromium,Browser} from "@playwright/test"
 
 // https://naveenautomationlabs.com/opencart/index.php?route=account/login
-test('select dropdown test',async({page})=>{
+test('handle pop ups test',async({page})=>{
     // Alert just accept it
     page.on('dialog',async (popup)=>{
         if(popup.type()==='alert'){

@@ -1,10 +1,33 @@
   import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('practice automation', async ({ browser }) => {
+  let context=await browser.newContext();
+ let page= await context.newPage();
+
+ // await page.goto('https://playwright.dev/');
+ await page.goto('https://practice-automation.com/window-operations/');
+  let[childWindow]=await Promise.all([
+    context.waitForEvent('page'),
+    page.getByRole('button',{name:'New Tab'}).click()
+
+
+
+  ]);
+
+  childWindow.waitForLoadState();
+  let allPages=context.pages();
+  console.log('total pages',allPages);
+
+
+
+
+
+
+ await page.pause();
+
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  //await expect(page).toHaveTitle(/Playwright/);
 });
 
 test('get started link', async ({ page }) => {
